@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<html>
+    <title>ZapchastiShop</title>
+    <head>
+    <div class="page-header">
+        <h1><a href="/">ZapchastiShop</a></h1>
+        <div style='text-align:right'>
+            {% if user.username == "" %}
+                Привіт!<a href="{% url 'shop:login' %}"> Зайди </a> або <a href='/signup/'> зареєструйся </a>
+            {% else %}
+                Привіт, <b>{{request.user.username}}</b>!<a href="{% url 'shop:logout' %}"> Вийти </a><br>
+            {% endif %}
+        </div>
+    </div>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    </head>
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/infinite.min.js' %}"></script>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
