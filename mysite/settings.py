@@ -25,7 +25,7 @@ SECRET_KEY = '+*@a6u)ugu4bf57cf0kb#q!jj%la)g&040lgx!93hktq0xad9o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'detailsshop.pythonanywhere.com']
+ALLOWED_HOSTS = [u'detailsshop.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -131,14 +131,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    '/DetailsShop/static/',
+]
+
+
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 MEDIA_ROOT = u'/home/detailsshop/mysite/media'
 MEDIA_URL = '/media/'
-STATIC_ROOT = u'/home/detailsshop/mysite/static'
-STATIC_URL = '/static/'
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'

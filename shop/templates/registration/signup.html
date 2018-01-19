@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="content container">
-    <h5>Already have account? <a href='/login'>Login</a></h5>
-    <h2>Sign up</h2>
+    <h5>Маєте акаунт? <a href='/login'>Зайдіть!</a></h5>
+    <h2>Реєстрація</h2>
     <form method="POST">
         {% csrf_token %}
         {% for field in form %}
             <p>
             {{ field.label_tag }}<br>
             {{ field }}
-            {% if field.help_text != "<ul><li>Your password can&#39;t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can&#39;t be a commonly used password.</li><li>Your password can&#39;t be entirely numeric.</li></ul>" %}
+            {% if field.help_text != "<ul><li>Ваш пароль не може бути занадто подібним до вашої іншої особистої інформації.</li><li>Ваш пароль повинен містити принаймні 8 символів.</li><li>Ваш пароль не має бути занато простим паролем.</li><li>Ваш пароль не може складатись тільки з чисел.</li></ul>" %}
                 <small style="color: grey">{{ field.help_text }}</small>
             {% endif %}
             {% for error in field.errors %}

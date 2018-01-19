@@ -2,9 +2,10 @@ from django.db import models
 
 
 class Detail(models.Model):
-    author = models.ForeignKey('auth.User')
+    author = models.ForeignKey(
+    'auth.User',
+    on_delete=models.CASCADE,)
     car = models.CharField(max_length=100)
-    type_of_detail = models.CharField(max_length=50)
     detail = models.TextField()
     description = models.TextField()
     price = models.CharField(max_length=30)
