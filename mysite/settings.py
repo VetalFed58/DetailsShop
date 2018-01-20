@@ -141,8 +141,8 @@ STATICFILES_DIRS = [
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = u'/home/detailsshop/mysite/media'
-MEDIA_URL = '/media/'
+MEDIA_URL = '/static/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'

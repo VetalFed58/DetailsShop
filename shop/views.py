@@ -2,24 +2,26 @@ from .models import Detail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, authenticate
-from .forms import SignUpForm
+from .forms import SignUpForm, DetailForm
 from datetime import datetime
 from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import user_passes_test
 
 from django.utils import timezone
 import sched, time
 
 def details_list(request):
-    return render(request, 'shop/details_list.html', {})
+    return render(request, 'shop/cars_list.html', {})
 
 @login_required
 def home(request):
-    return render(request, 'shop/details_list.html')
+    return render(request, 'shop/cars_list.html')
 
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -28,24 +30,21 @@ def signup(request):
             login(request, user)
             return redirect('/')
     else:
-        form = SignUpForm()
+        form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+
+@user_passes_test(lambda u: u.is_superuser)
 def new_detail(request):
-    if request.user.is_authenticated:
-        if request.user.is_superuser:
-            if request.method == 'POST':
-                car = request.POST['car']
-                author = request.user
-                detail = request.POST['detail']
-                price = request.POST['price']
-                description = request.POST['description']
-                detail = Detail(car = car, author = author, detail = detail, price = price, description = description)
-                detail.save()
-                return redirect('/new_detail/')
+    if request.method == 'POST':
+        form = DetailForm(request.POST)
+
+        if form.is_valid():
+            detail = form.save()
+            return redirect('/new_detail/')
     else:
-        return redirect('/login/')
-    return render(request, 'shop/new_detail.html')
+        form = DetailForm(request.POST)
+    return render(request, 'shop/new_detail.html', {'form': form})
 
 def audi_a8_d2_3_3(request):
     page = request.GET.get('page', 1)

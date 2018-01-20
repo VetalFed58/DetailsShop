@@ -13,6 +13,11 @@
                         <p>
                             {{ detail.description }}
                         </p>
+                        <p>
+                            {% if detail.images %}
+                                <img class="detail-foto" src="{{ detail.images.url }}" />
+                            {% endif %}
+                        </p>
                     </div>
                 </div>
             {% endfor %}

@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-md-8">
             <div class=".signin">
-                <form action="" method="POST">
+                <form action="" method="POST"  enctype="multipart/form-data">
                     {% csrf_token %}
                     <h3>Автомобіль: </h3>
-                    <select name="car">
+                    <select for="{{ form.car }}">
                         <option selected>Audi A8 D2 3.3 TDI</option>
                         <option>Audi A8 D2 3.7</option>
                         <option>Audi A8 D2 4.2</option>
@@ -18,9 +18,12 @@
                         <option>Mitsubishi Pajero Wagon 3(2000-2006) 3.5 GID</option>
                         <option>Porsche Cayenne</option>
                     </select>
-                    <h3>Деталь: </h3><textarea name="detail"></textarea>
-                    <h3>Опис: </h3><textarea name="description"></textarea>
-                    <h3>Ціна: </h3><textarea name="price"></textarea>
+                    <h3>Деталь: </h3>{{ form.detail }}
+                    <h3>Опис: </h3>{{ form.description }}
+                    <h3>Ціна: </h3>{{ form.price }}
+                    <h3>Фотки: </h3>{{ form.images }}
+                    <br />
+                    <br />
                     <input type="submit" value="Опублікувати" />
                 </form>
             </div>

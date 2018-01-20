@@ -9,7 +9,7 @@ body, html{
 
 body{
     font-size: 30px;
-    background: red;
+    background: blue;
 }
 
 #particles-js{
@@ -44,8 +44,19 @@ body{
     margin-bottom: 10px;
 }
 
-img{
+.cars{
+    width: auto;
+}
+
+.detail-foto{
+    width: 430;
     height: auto;
+}
+
+.detail{
+    border: 4px solid #daede6;
+    margin: 10px;
+    padding: 10px;
 }
 
 .plz{
