@@ -6,18 +6,19 @@
             {% for detail in details %}
                 <div class="background_detail">
                     <div class="detail">
-                        <div class="price">
-                            <p>Ціна: {{ detail.price }}</p>
-                        </div>
-                        <h3>{{ detail.detail }} для {{ detail.car }}</h3>
-                        <p>
-                            {{ detail.description }}
-                        </p>
-                        <p>
-                            {% if detail.images %}
-                                <img class="detail-foto" src="{{ detail.images.url }}" />
+                        <h3 class="name-detail">{{ detail.detail }} для {{ detail.car }}</h3>
+                        <br>
+                        <h6>{{ detail.description }} <em class="fa fa-arrow-down"></em> Всі контакти внизу <em class="fa fa-arrow-down"></em></h6>
+                        <br>
+                        {% for img in images %}
+                            {% if img.detail == detail %}
+                                <img class="detail-foto" src="{{ img.image.url }}" />
                             {% endif %}
-                        </p>
+                        {% endfor %}
+                        <br>
+                        <div class="price">
+                            Ціна: {{ detail.price }}
+                        </div>
                     </div>
                 </div>
             {% endfor %}

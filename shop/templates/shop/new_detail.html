@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class=".signin">
-                <form action="" method="POST"  enctype="multipart/form-data">
+                <form id="detail_form" action="" method="POST"  enctype="multipart/form-data">
                     {% csrf_token %}
                     <h3>Автомобіль: </h3>
                     <select for="{{ form.car }}">
@@ -21,7 +21,11 @@
                     <h3>Деталь: </h3>{{ form.detail }}
                     <h3>Опис: </h3>{{ form.description }}
                     <h3>Ціна: </h3>{{ form.price }}
-                    <h3>Фотки: </h3>{{ form.images }}
+                    <h3>Фотки: </h3>
+                    {{ formset.management_form }}
+                    {% for form in formset %}
+                        {{ form }}
+                    {% endfor %}
                     <br />
                     <br />
                     <input type="submit" value="Опублікувати" />

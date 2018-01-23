@@ -44,6 +44,10 @@ body{
     margin-bottom: 10px;
 }
 
+img{
+    border-radius: 6px;
+}
+
 .cars{
     width: auto;
 }
@@ -57,10 +61,19 @@ body{
     border: 4px solid #daede6;
     margin: 10px;
     padding: 10px;
+    max-width: 900px;
+    border-radius: 7px;
+    background-color: #171819;
 }
 
 .plz{
     margin: auto;
+}
+
+.price{
+    text-align: right;
+    font-size: 25px;
+    color: red; 
 }
 
 .inner-header{
@@ -78,6 +91,7 @@ body{
     background-color: #171819;
     min-height: 500px;
     padding: 10px;
+    border-radius: 7px;
 }
 
 .content-1{
@@ -92,6 +106,7 @@ body{
     padding: 10px;
     min-height: 45px;
     text-align: center;
+    border-radius: 7px;
 }
 
 .footer{

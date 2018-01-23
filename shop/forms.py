@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from shop.models import Detail
+from shop.models import Detail, DetailImage
 
 
 class SignUpForm(UserCreationForm):
@@ -16,4 +16,10 @@ class SignUpForm(UserCreationForm):
 class DetailForm(forms.ModelForm):
     class Meta:
         model = Detail
-        fields = ['car', 'detail', 'price', 'description', 'images']
+        fields = ['car', 'detail', 'price', 'description',]
+
+class ImageForm(forms.ModelForm):
+    image = forms.ImageField(label="")
+    class Meta:
+        model = DetailImage
+        fields = ('image',)
