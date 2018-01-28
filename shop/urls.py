@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^mitsubishi_3_2/$', views.mitsubishi_3_2, name='mitsubishi_3_2mitsubishi_3_5'),
     url(r'^mitsubishi_3_5/$', views.mitsubishi_3_5, name='mitsubishi_3_5'),
     url(r'^porshe_cayenne/$', views.porshe_cayenne, name='porshe_cayenne'),
+    url(r'^detail/(?P<pk>\d+)/$', views.detail_page, name='detail_page'),
 ]
 
 if settings.DEBUG:

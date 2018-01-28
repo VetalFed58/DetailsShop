@@ -17,6 +17,7 @@ import sched, time
 def details_list(request):
     return render(request, 'shop/cars_list.html', {})
 
+
 @login_required
 def home(request):
     return render(request, 'shop/cars_list.html')
@@ -167,3 +168,8 @@ def porshe_cayenne(request):
         except EmptyPage:
             details = paginator.page(paginator.num_pages)
         return render(request, 'shop/list.html', {'details': details, 'images':images})
+
+def detail_page(request, pk):
+    detail = get_object_or_404(Detail, pk=pk)
+    images = DetailImage.objects.filter(detail=detail)
+    return render(request, 'shop/detail.html', {'detail': detail, 'images':images})

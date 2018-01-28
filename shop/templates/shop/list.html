@@ -6,7 +6,7 @@
             {% for detail in details %}
                 <div class="background_detail">
                     <div class="detail">
-                        <h3 class="name-detail">{{ detail.detail }} для {{ detail.car }}</h3>
+                        <h3 class="name-detail"><a href="{% url 'shop:detail_page' pk=detail.pk %}">{{ detail.detail }} для {{ detail.car }}</a></h3>
                         <br>
                         <h6>{{ detail.description }} <em class="fa fa-arrow-down"></em> Всі контакти внизу <em class="fa fa-arrow-down"></em></h6>
                         <br>

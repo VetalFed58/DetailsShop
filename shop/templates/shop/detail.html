@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="post">
+        <div class="post-title">
+            {{ detail.detail }} для {{ detail.car }}
+        </div>
+        <div class="post-description">
+            {{ detail.description }} <em class="fa fa-arrow-down"></em> Всі контакти внизу <em class="fa fa-arrow-down"></em>
+            <br>
+            {% for img in images %}
+                {% if img.detail == detail %}
+                    <img class="detail-foto-post" src="{{ img.image.url }}" />
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
