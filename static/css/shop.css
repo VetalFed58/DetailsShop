@@ -9,7 +9,7 @@ body, html{
 
 body{
     font-size: 30px;
-    background: blue;
+    background: #0e4db2;
 }
 
 #particles-js{
@@ -78,7 +78,7 @@ img{
 
 .inner-header{
     background-color: #171819;
-    height: 200px;
+    min-height: 200px;
 }
 
 .content{

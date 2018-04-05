@@ -1,7 +1,12 @@
 from django.db import models
+from django_elasticsearch.models import EsIndexable
+import django.db.models.options as options
+options.DEFAULT_NAMES = options.DEFAULT_NAMES + (
+    'es_index_name', 'es_type_name', 'es_mapping'
+)
 
 
-class Detail(models.Model):
+class Detail(EsIndexable, models.Model):
     car = models.CharField(max_length=100)
     detail = models.TextField()
     description = models.TextField(null=True)

@@ -173,3 +173,7 @@ def detail_page(request, pk):
     detail = get_object_or_404(Detail, pk=pk)
     images = DetailImage.objects.filter(detail=detail)
     return render(request, 'shop/detail.html', {'detail': detail, 'images':images})
+
+def detail_search(request):
+    return render(request, 'shop/search.html')
+

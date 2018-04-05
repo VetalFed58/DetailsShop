@@ -8,5 +8,6 @@ class DetailImageInline(admin.TabularInline):
 class DetailAdmin(admin.ModelAdmin):
     inlines = [ DetailImageInline, ]
 
-admin.site.register(Detail)
 admin.site.register(DetailImage)
+admin.site.register(Detail)
+
